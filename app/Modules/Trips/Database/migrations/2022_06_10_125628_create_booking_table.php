@@ -15,10 +15,10 @@ class CreateBookingTable extends Migration
     {
         Schema::create('booking', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('from');
-            $table->foreign('from')->references('id')->on('stations')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('to');
-            $table->foreign('to')->references('id')->on('stations')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('seat');
+            $table->foreign('seat')->references('id')->on('seats')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('user');
+            $table->foreign('user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('seats');
             $table->timestamps();
         });

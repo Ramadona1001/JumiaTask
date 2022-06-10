@@ -8,6 +8,7 @@ use File;
 use Stations\Models\Stations;
 use Trips\Models\Seats;
 use DB;
+use Trips\Models\Booking;
 
 class TripsRepository implements TripsRepositoryInterface
 {
@@ -71,6 +72,16 @@ class TripsRepository implements TripsRepositoryInterface
     public function stations()
     {
         return Stations::all();
+    }
+
+    public function bookSeats($request)
+    {
+        foreach ($request->seat as $seat) {
+            $book = new Booking();
+            $book->user = auth()->user()->id;
+            $book->seat = $seat;
+            $book->save();
+        }
     }
 
     public function getStations($ids)

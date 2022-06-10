@@ -17,7 +17,7 @@ Route::group(['middleware' => ['web','auth']], function() {
                 Route::post('/upload', 'TripsController@upload')->name('upload_trips');
                 Route::get('/get-stations', 'TripsController@getStation')->name('stations_trips');
                 Route::get('/get-seats/{id}', 'TripsController@getSeats')->name('seats_trips');
-                Route::post('/book-seats/{id}', 'TripsController@bookSeats')->name('book_seats_trips');
+                Route::post('/book-seats', 'TripsController@bookSeats')->name('book_seats_trips');
             });
         });
     });

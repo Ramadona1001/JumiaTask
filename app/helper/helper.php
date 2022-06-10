@@ -2,6 +2,7 @@
 
 use Spatie\Permission\Models\Permission;
 use Stations\Models\Stations;
+use Trips\Models\Booking;
 
 function statisticsWidget($data){
     $statisticsHtml = '';
@@ -155,4 +156,9 @@ function generateTripForBook($trip)
     }
     $result[] = '('.getStations($cross[(count($cross) - 1)]).' <=> '.getStations($to).')';
     return $result;
+}
+
+function seatBooked($seat)
+{
+    return Booking::where('seat',$seat)->first();
 }

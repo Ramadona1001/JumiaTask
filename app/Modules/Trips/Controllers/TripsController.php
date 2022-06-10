@@ -62,9 +62,10 @@ class TripsController extends Controller
         return view($this->path.'seats',compact('pages','title','trips','seatsByStation','seats'));
     }
 
-    public function bookSeats()
+    public function bookSeats(Request $request)
     {
-        # code...
+        $this->tripsRepository->bookSeats($request);
+        return back()->with('success','');
     }
 
     public function store(Request $request)
