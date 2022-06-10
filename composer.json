@@ -39,7 +39,8 @@
             "Tests\\": "tests/",
             "Roles\\": "app/Modules/Roles/",
             "Stations\\": "app/Modules/Stations/",
-            "Trips\\": "app/Modules/Trips/"
+            "Trips\\": "app/Modules/Trips/",
+            "Api\\": "app/Modules/Api/"
         }
     },
     "scripts": {
