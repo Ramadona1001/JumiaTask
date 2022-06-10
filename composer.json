@@ -37,7 +37,8 @@
         "psr-4": {
             "Tests\\": "tests/",
             "Roles\\": "app/Modules/Roles/",
-            "Stations\\": "app/Modules/Stations/"
+            "Stations\\": "app/Modules/Stations/",
+            "Trips\\": "app/Modules/Trips/"
         }
     },
     "scripts": {

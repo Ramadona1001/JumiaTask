@@ -61,22 +61,22 @@
                         @endcan
 
                         <li class="menu-header">Website</li>
-                        @can('show_categories')
-                        <li class="nav-item dropdown {{ menuActive('all-categories',3) }}">
-                            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-list"></i> <span>Categories</span></a>
+                        @can('show_stations')
+                        <li class="nav-item dropdown {{ menuActive('stations',3) }}">
+                            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-list"></i> <span>Stations</span></a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="{{ route('create_categories') }}">New Category</a></li>
-                                <li><a class="nav-link" href="{{ route('categories') }}">All Categories</a></li>
+                                <li><a class="nav-link" href="{{ route('create_stations') }}">New Station</a></li>
+                                <li><a class="nav-link" href="{{ route('stations') }}">All Stations</a></li>
                             </ul>
                         </li>
                         @endcan
 
-                        @can('show_tags')
-                        <li class="nav-item dropdown {{ menuActive('all-tags',3) }}">
-                            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-list"></i> <span>Tags</span></a>
+                        @can('show_trips')
+                        <li class="nav-item dropdown {{ menuActive('trips',3) }}">
+                            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-list"></i> <span>Trips</span></a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="{{ route('create_tags') }}">New Tag</a></li>
-                                <li><a class="nav-link" href="{{ route('tags') }}">All Tags</a></li>
+                                <li><a class="nav-link" href="{{ route('create_trips') }}">New Trip</a></li>
+                                <li><a class="nav-link" href="{{ route('trips') }}">All Trips</a></li>
                             </ul>
                         </li>
                         @endcan

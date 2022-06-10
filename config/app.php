@@ -177,6 +177,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Roles\Providers\RoleServiceProvider::class,
         Stations\Providers\StationsServiceProvider::class,
+        Trips\Providers\TripsServiceProvider::class,
 
     ],
 

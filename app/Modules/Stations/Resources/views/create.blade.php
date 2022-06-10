@@ -17,20 +17,13 @@
                 <h4>{{ $title }}</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('store_categories') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('store_stations') }}" method="post">
                     @csrf
 
                     <div class="row">
                         <div class="col-lg-12">
                             <label for="title">Title</label>
                             <input type="text" name="title" id="title" class="form-control" required>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <label for="content">Content</label>
-                            <textarea name="content" id="content" cols="30" rows="10" id="content" class="form-control" required></textarea>
                         </div>
                     </div>
 
