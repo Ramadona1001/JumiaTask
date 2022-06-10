@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Date\Date;
 use Stations\Models\Stations;
 
-class Trips extends Model
+class Booking extends Model
 {
-    protected $table = 'trips';
+    protected $table = 'booking';
 
     public function fromStation()
     {
@@ -18,10 +18,5 @@ class Trips extends Model
     public function toStation()
     {
         return $this->belongsTo(Stations::class, 'to');
-    }
-
-    public function crossStation($value)
-    {
-        return Stations::findOrfail($value);
     }
 }

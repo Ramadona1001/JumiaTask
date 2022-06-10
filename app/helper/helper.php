@@ -1,23 +1,7 @@
 <?php
 
-use ModelAttachments\Models\ModelAttachment;
-use Pages\Models\Page;
-use Stichoza\GoogleTranslate\GoogleTranslate;
 use Spatie\Permission\Models\Permission;
-use ActivityLog\Models\ActivityLog;
-use Carbon\Carbon;
-use App\Notifications\NewUserNotification;
-use App\User;
-use Books\Models\BookReport;
-use Books\Models\BookRequest;
-use Books\Models\Books;
-use Contacts\Models\Contact;
-use Illuminate\Notifications\Notification;
-use Services\Models\Service;
-use Services\Models\ServiceCategory;
-use Services\Models\ServiceOrder;
-use Spatie\Permission\Models\Role;
-
+use Stations\Models\Stations;
 
 function statisticsWidget($data){
     $statisticsHtml = '';
@@ -136,4 +120,24 @@ function setPublic()
     {
         return "public/";
     }
+}
+
+function getStations($id)
+{
+    return Stations::findOrfail($id)->title;
+}
+
+function generateTrip($trip)
+{
+    $from = $trip->from;
+    $to = $trip->to;
+    $cross = (array)json_decode($trip->cross);
+    $cross = array_values($cross);
+    $result = [];
+    $result[] = '('.getStations($from).' <=> '.getStations($cross[0]).') , ';
+    for ($i=1; $i < count($cross); $i++) {
+        $result[] = '('.getStations($cross[$i-1]).' <=> '.getStations($cross[$i]).') , ';
+    }
+    $result[] = '('.getStations($cross[(count($cross) - 1)]).' <=> '.getStations($to).')';
+    return $result;
 }

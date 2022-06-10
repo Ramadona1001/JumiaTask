@@ -22,28 +22,19 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Title</th>
-                                <th>Actions</th>
+                                <th>Trip Details</th>
                             </tr>
                         </thead>
 
                         <tbody id="permissionTable">
 
-                            @foreach ($stations as $index => $station)
+                            @foreach ($trips as $index => $trip)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-                                <td>{{ $station->title }}</td>
                                 <td>
-                                    <li class="dropdown language-menu" style="list-style: none">
-                                        <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                                            <i class="fa fa-bars"></i>
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item pt-2 pb-2" href="{{ route('show_stations',Crypt::encrypt($station->id)) }}"><i class="fa fa-eye"></i>&nbsp;Show</a>
-                                            <a class="dropdown-item pt-2 pb-2" href="{{ route('edit_stations',Crypt::encrypt($station->id)) }}"><i class="fa fa-edit"></i>&nbsp;Edit</a>
-                                            <a class="dropdown-item pt-2 pb-2" id="deleteBtn" href="{{ route('destroy_stations',Crypt::encrypt($station->id)) }}" onclick="return confirm('Are You Sure?')"><i class="fa fa-trash"></i>&nbsp;Delete</a>
-                                        </div>
-                                    </li>
+                                    @foreach (generateTrip($trip) as $item)
+                                        {{ $item }}
+                                    @endforeach
                                 </td>
                             </tr>
                             @endforeach
@@ -52,8 +43,7 @@
                         <tfoot>
                             <tr>
                                 <th>#</th>
-                                <th>Title</th>
-                                <th>Actions</th>
+                                <th>Trip Details</th>
                             </tr>
                         </tfoot>
                     </table>
