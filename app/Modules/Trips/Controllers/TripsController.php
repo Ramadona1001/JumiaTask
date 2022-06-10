@@ -49,6 +49,24 @@ class TripsController extends Controller
         return response()->json($stations,200);
     }
 
+    public function getSeats($id)
+    {
+        $title = 'Create Trips';
+        $pages = [
+            ['All Trips','trips'],
+            ['Create Trips','create_trips']
+        ];
+        $trips = $this->tripsRepository->getDataId($id);
+        $seatsByStation = $this->tripsRepository->seatsByStation($trips);
+        $seats = $this->tripsRepository->seats($trips);
+        return view($this->path.'seats',compact('pages','title','trips','seatsByStation','seats'));
+    }
+
+    public function bookSeats()
+    {
+        # code...
+    }
+
     public function store(Request $request)
     {
         hasPermissions('create_trips');

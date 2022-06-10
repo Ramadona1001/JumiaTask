@@ -141,3 +141,18 @@ function generateTrip($trip)
     $result[] = '('.getStations($cross[(count($cross) - 1)]).' <=> '.getStations($to).')';
     return $result;
 }
+
+function generateTripForBook($trip)
+{
+    $from = $trip->from;
+    $to = $trip->to;
+    $cross = (array)json_decode($trip->cross);
+    $cross = array_values($cross);
+    $result = [];
+    $result[] = '('.getStations($from).' <=> '.getStations($cross[0]).') , ';
+    for ($i=1; $i < count($cross); $i++) {
+        $result[] = '('.getStations($cross[$i-1]).' <=> '.getStations($cross[$i]).') , ';
+    }
+    $result[] = '('.getStations($cross[(count($cross) - 1)]).' <=> '.getStations($to).')';
+    return $result;
+}

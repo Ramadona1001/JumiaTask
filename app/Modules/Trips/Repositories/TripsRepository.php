@@ -6,6 +6,8 @@ namespace Trips\Repositories;
 use Trips\Models\Trips;
 use File;
 use Stations\Models\Stations;
+use Trips\Models\Seats;
+use DB;
 
 class TripsRepository implements TripsRepositoryInterface
 {
@@ -28,6 +30,36 @@ class TripsRepository implements TripsRepositoryInterface
         $trips->to = $request->to;
         $trips->cross = json_encode($request->cross);
         $trips->save();
+
+        $cross = [];
+        $cross = $request->cross;
+
+        array_unshift($cross,$request->from);
+        $cross[] = $trips->to;
+
+        for ($i=0; $i < 12; $i++) {
+            for ($j=1; $j < count($cross); $j++) {
+                $seats = new Seats();
+                $seats->trip = $trips->id;
+                $seats->from = $cross[$j-1];
+                $seats->to = $cross[$j];
+                $seats->save();
+            }
+        }
+
+    }
+
+    public function seatsByStation($trip)
+    {
+        return Seats::select('from','to',\DB::raw('count(*)'))
+                    ->where('trip',$trip->id)
+                    ->groupBy('from')
+                    ->get();
+    }
+
+    public function seats($trip)
+    {
+        return Seats::where('trip',$trip->id)->get();
     }
 
     public function deleteData($id)

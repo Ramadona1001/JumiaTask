@@ -23,6 +23,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Trip Details</th>
+                                <th>Seats</th>
                             </tr>
                         </thead>
 
@@ -36,6 +37,9 @@
                                         {{ $item }}
                                     @endforeach
                                 </td>
+                                <td>
+                                    <a href="{{ route('seats_trips',$trip->id) }}" class="btn btn-primary">Seats</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -44,6 +48,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Trip Details</th>
+                                <th>Seats</th>
                             </tr>
                         </tfoot>
                     </table>
