@@ -175,6 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        Roles\Providers\RoleServiceProvider::class,
+        Stations\Providers\StationsServiceProvider::class,
 
     ],
 

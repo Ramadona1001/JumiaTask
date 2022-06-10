@@ -12,6 +12,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
+        "mcamara/laravel-localization": "^1.7",
         "spatie/laravel-permission": "^5.5"
     },
     "require-dev": {
@@ -35,7 +36,8 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "Roles\\": "app/Modules/Roles/"
+            "Roles\\": "app/Modules/Roles/",
+            "Stations\\": "app/Modules/Stations/"
         }
     },
     "scripts": {

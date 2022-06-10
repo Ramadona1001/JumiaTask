@@ -15,11 +15,6 @@ Route::group(['middleware' => ['web','auth']], function() {
                 Route::get('/delete/{id}', 'RoleController@destroy')->name('delete_roles');
                 Route::get('/permissions/{id}', 'RoleController@permissions')->name('permissions_roles');
                 Route::get('/assign/permissions/{id}', 'RoleController@assignPermissions')->name('assign_permissions_roles');
-
-                // Route::get('/permissions', 'PermissionsController@index')->name('permissions');
-    //            Route::get('/permissions/store', 'PermissionsController@store')->name('store_permissions');
-    //            Route::get('/permissions/update/{id}', 'PermissionsController@update')->name('update_permissions');
-    //            Route::get('/permissions/delete/{id}', 'PermissionsController@destroy')->name('delete_permissions');
             });
         });
     });
